@@ -4,6 +4,8 @@ const {courseSchema} = require('./schemas')
 
 
 module.exports.isLoggedIn = (req,res,next) => {
+    return next()
+    //stubs for now
     if(!req.isAuthenticated()){
         //remember the route they came from
         req.session.returnTo = req.originalUrl
@@ -14,11 +16,11 @@ module.exports.isLoggedIn = (req,res,next) => {
 }
 
 //JOi validator function
-module.exports.validateBook = (req,res,next) => {
+module.exports.validateCourse = (req,res,next) => {
     next()
 }
 
-module.exports.validateChapter= (req,res,next) =>{
+module.exports.validateNote = (req,res,next) =>{
     //check if there is an error
     next()
 }

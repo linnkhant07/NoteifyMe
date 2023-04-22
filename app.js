@@ -28,7 +28,7 @@ const session = require('express-session')
 
 //routes
 const userRoutes = require("./routes/user")
-const bookRoutes = require("./routes/course")
+const courseRoutes = require("./routes/course")
 const noteRoutes = require("./routes/note")
 
 //dbUrl for mongoAtlas
@@ -137,9 +137,9 @@ app.get("/home", (req,res)=>{
 })
 
 
-/*
 //CRUD
-app.use("/books", bookRoutes)
+app.use("/courses", courseRoutes)
+/*
 app.use("/books/:id/chapters", chapterRoutes)
 app.use("/", userRoutes)
 

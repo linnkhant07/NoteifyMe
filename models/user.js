@@ -9,7 +9,7 @@ const passportLocalMongoose = require('passport-local-mongoose')
 const userSchema = new Schema({
     discordID: {
         type: String,
-        unique: true
+        // unique: true
     },
 
     email: {

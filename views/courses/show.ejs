@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Course and Notes</title>
+    <link rel="stylesheet" href="/css/show.css">
 </head>
 <body>
     <h1><%= course.title%></h1>
@@ -21,16 +22,41 @@
     <h3>Notes</h3>
 
     <ul>
-        <% for(let chapter of course.notes) {%>
-            <b><%= chapter.title %></b>
-            <p>
-                <%= chapter.contents %>
-            </p>
-            <form action="/courses/<%= course._id  %>/notes/<%= chapter._id %>?_method=DELETE" method="POST">
-                <button>Delete Notes</button>
-            </form>
+        <% for(let note of course.notes) {%>
+            <div class="parent">
+                <div class="beforeEdit">
+                    <b><%= note.title %></b>
+                    <p>
+                        <%= note.contents %>
+                    </p>
+
+
+                    <button id="btnEdit">Edit Notes</button>
+                    <form action="/courses/<%= course._id  %>/notes/<%= note._id %>?_method=DELETE" method="POST">
+                        <button>Delete Notes</button>
+                    </form>
+                </div>
+    
+                <div class="afterEdit" style="display: none;">
+                    <form action="/courses/<%= course._id  %>/notes/<%= note._id %>?_method=PUT" method="POST">
+                        <label for="title">Title: </label>
+                        <input type="text" id="title" name="note[title]" value="<%= note.title %>">
+                        <br>
+    
+                        <label for="contents">Contents: </label><br>
+                        <textarea name="note[contents]" id="contents" cols="50" rows="3" ><%= note.contents %></textarea>
+                        <br>
+                        <button id="cancelBtn">Cancel</button>
+                        <button>Update Notes</button>
+                    </form>
+                </div>
+            </div>
+            
+            
         <% } %>
     </ul>
+
+    
 
     <div>
         <form action="/courses/<%=course._id%>/notes" method="post">
@@ -47,5 +73,7 @@
     </div>
 
     <a href="/courses">Back to Home Page</a>
+
+<script src="/js/show.js"></script>
 </body>
 </html>

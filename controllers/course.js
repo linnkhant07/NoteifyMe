@@ -67,8 +67,6 @@ module.exports.renderEditForm = async (req,res) =>{
 }
 
 module.exports.updateCourse = async (req,res) =>{
-    return res.send("Update")
-    //stubs
     //get id
     const {id} = req.params
     const course = await Course.findByIdAndUpdate(id, {...req.body.course}, {new: true})
@@ -78,16 +76,13 @@ module.exports.updateCourse = async (req,res) =>{
         return res.redirect("/courses")
     }
     //update in the db
-    //worry about the image later
     req.flash("success", "Course successfully updated")
     res.redirect(`/courses/${id}`)
 
 }
 
 module.exports.deleteCourse = async (req,res) => {
-    
-    return res.send("Create")
-    //stubs
+
     try {
             //get id
         const {id} = req.params;

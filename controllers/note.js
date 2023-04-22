@@ -26,7 +26,21 @@ module.exports.createNote = async (req,res) => {
 
 module.exports.updateNote = async (req,res) =>{
     //updating note details
-    //more to come
+
+    try {
+        const {id, noteId} = req.params;
+        const note = await Note.findByIdAndUpdate(noteId, {...req.body.note}, {new: true})
+        if(!note){
+            res.send("no notes found")
+        }
+
+        req.flash("success", "Course successfully updated")
+        res.redirect(`/courses/${id}`)
+
+    } catch (error) {
+        console.log(error);
+        res.send("error")
+    }
 }
 
 module.exports.deleteNote = async (req,res) => {

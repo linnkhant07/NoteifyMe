@@ -7,6 +7,9 @@ const {validateNote, isLoggedIn} = require('../middleware')
 //Create route
 router.post("/", isLoggedIn, validateNote, note.createNote)
 
+//Update route
+router.put("/:noteId", isLoggedIn, catchAsync(note.updateNote))
+
 //Delete route
 router.delete("/:noteId", isLoggedIn, catchAsync(note.deleteNote))
 

@@ -21,6 +21,11 @@ const courseSchema = new mongoose.Schema({
       required: true
     },
 
+    description: {
+      type: String,
+      required: true
+    },
+    
     notes: [{
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Note'

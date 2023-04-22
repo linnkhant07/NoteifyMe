@@ -139,10 +139,8 @@ app.get("/home", (req,res)=>{
 
 //CRUD
 app.use("/courses", courseRoutes)
+app.use("/courses/:id/notes", noteRoutes)
 app.use("/", userRoutes)
-/*
-app.use("/books/:id/chapters", chapterRoutes)
-
 
 //ERROR HANDLERS
 
@@ -160,6 +158,7 @@ app.use((err, req, res, next)=>{
 
     res.status(err.statusCode).render("error", {err});
 })
+/*
 
 //printHiEvery5Seconds()
 */

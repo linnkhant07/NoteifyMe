@@ -1,0 +1,46 @@
+<% layout('layouts/boilerplate')%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses</title>
+</head>
+<body>
+    <div class="row mb-5">
+        <div class="col-6">
+            <h1>courseshelf for </h1>
+            <h2> <%= username %> </h2>
+        </div>
+        <% if(!discordID) {%>
+        <div class="col-6 text-end">
+            <h2>Register For Discord</h2>
+            <p>We need your discord to send summaries!</p>
+            <a href="<%= id %>/discordSetup">Set Up discord</a>
+        </div>
+        <% } %>
+    </div>
+    
+    
+
+    <div>
+        <% for(let course of courses) {%>
+            <ul>
+                <div>
+                    <h3><%= course.title %></h3>
+                    <p> Instructor: <%= course.instructor %> <br>
+                        Description: <%= course.description  %> <br>
+                        Note count: <%= course.notes.length  %>
+                    </p>
+                    <button><a href= "/courses/<%= course._id  %>" >View course</a></button>
+                </div>
+            </ul>
+        <%} %>
+    </div>
+
+    <div>
+        <a href="/courses/new">Add a new course</a>
+    </div>
+</body>
+</html>

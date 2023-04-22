@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Course</title>
+</head>
+<body>
+    <h1>Edit your course</h1>
+    <h2>because first drafts are always shitty right</h2>
+
+    <form action="/courses/<%= course._id  %>?_method=PUT" method="POST" >
+        <label for="title">course Title: </label>
+        <input type="text" name="course[title]" id="title" value="<%= course.title %>">
+        <label for="instructor">Instructor: </label>
+        <input type="text" name="course[instructor]" id="instructor" value="<%= course.author %>">
+        <label for="isRemind">To Be Reminded (stubs for now): </label>
+        <input type="isRemind" name="course[isRemind]" id="isRemind" value="<%= course.isRemind %>">
+
+        <!-- <label for="summary">Summary: </label>
+        <input type="text" name="course[summary]" id="summary" value="<%= course.summary %>">
+        <label for="image">Upload Image: </label>
+        <input type="file" name="course[image]" id="image" value="<%= course.image %>"accept="image/*"> -->
+
+        <div>
+            <button>Update course</button>
+        </div>
+    </form>
+</body>
+</html>

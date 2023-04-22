@@ -60,8 +60,6 @@ module.exports.showCourse = async (req,res) =>{
 }
 
 module.exports.renderEditForm = async (req,res) =>{     
-    return res.send("Edit")
-    //stubs
     //id
     const {id} = req.params;
 

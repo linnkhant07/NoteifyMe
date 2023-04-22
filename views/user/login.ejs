@@ -1,0 +1,16 @@
+<% layout('layouts/boilerplate')%>
+<h1>Login</h1>
+<form action="/login" method="POST">
+    
+    <label for="username">Username: </label>
+    <input type="text" id="username" name="username">
+
+    <label for="password" id="password">Password: </label>
+    <input type="password" id="password" name="password">
+
+    <button>Login</button>
+
+    <div>
+        <a href="/register">Register instead</a>
+    </div>
+</form>

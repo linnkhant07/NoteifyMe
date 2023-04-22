@@ -4,8 +4,7 @@ const {courseSchema} = require('./schemas')
 
 
 module.exports.isLoggedIn = (req,res,next) => {
-    return next()
-    //stubs for now
+
     if(!req.isAuthenticated()){
         //remember the route they came from
         req.session.returnTo = req.originalUrl

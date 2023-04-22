@@ -139,9 +139,10 @@ app.get("/home", (req,res)=>{
 
 //CRUD
 app.use("/courses", courseRoutes)
+app.use("/", userRoutes)
 /*
 app.use("/books/:id/chapters", chapterRoutes)
-app.use("/", userRoutes)
+
 
 //ERROR HANDLERS
 

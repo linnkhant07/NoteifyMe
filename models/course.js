@@ -23,17 +23,17 @@ const courseSchema = new mongoose.Schema({
 
     notes: [{
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Chapter'
+      ref: 'Note'
     }],
 
-    isRemind: boolean
+    isRemind: Boolean
 });
 
-//if course is deleted, delete the notes
+//if course is deleted, delete the notes  
 courseSchema.post('findOneAndDelete', async (course) =>{
     //if there is any note
     if(course.notes.length){
-        const res = await Note.deleteMany({_id: {$in: course.chapters}})
+        const res = await Note.deleteMany({_id: {$in: course.notes}})
     }
 })
 

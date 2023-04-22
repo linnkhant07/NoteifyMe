@@ -20,7 +20,7 @@ const noteSchema = new mongoose.Schema({
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User'
     },
-    isRemind: boolean
+    isRemind: Boolean
   });
 
 module.exports = mongoose.model('Note', noteSchema)

@@ -2,6 +2,7 @@
 const Course = require('../models/course')
 const User = require('../models/user')
 const Note = require('../models/note')
+const {get_ai_questions, get_ai_explanations} = require('./openai')
 
 const cron = require('node-cron');
 const generateResponse = require('./openai')
@@ -91,7 +92,7 @@ async function get_three_rand_notes(courses) {
     const randomNoteIndex = Math.floor(Math.random() * course.notes.length);
     const randomNoteId = course.notes[randomNoteIndex];
     const randomNote = await Note.findById(randomNoteId);
-    notes.push(randomNote);
+    notes.push(randomNote.contents);
   }
   return notes;
 }
@@ -114,9 +115,44 @@ cron.schedule('00 8 * * *', async () => {
       const notes = get_three_rand_notes(courses)
       const questions = []
       const explanations = []
+      console.log(courses)
 
     }
 });
+
+module.exports.print = async () =>{
+  const users = await User.find({ discordID: { $ne: '' } }).populate('courses');
+    for(let user of users){
+      let i = 0;
+      //delete everything from yesterday
+      user.random.notes = []
+      user.random.questions = []
+      user.random.explanations = []
+
+      //find for the courses with isRemind: true
+      const filtered_courses = user.courses.filter(course => course.isRemind)
+      const courses = get_three_rand_courses(filtered_courses);
+      
+      //get 3 random note blocks
+      const notes = await get_three_rand_notes(courses)
+      const questions = await get_ai_questions(notes)
+      const explanations = await get_ai_explanations(notes, questions)
+
+    
+      client.users.send(`${user.discordID}`, `Notes: ${notes[0]}`);
+      client.users.send(`${user.discordID}`, `Question: ${questions[0]}`);
+      client.users.send(`${user.discordID}`, `Explanation: ${explanations[0]}`);
+
+      //delete everything from yesterday
+      user.random.notes = notes 
+      user.random.questions = questions
+      user.random.explanations = explanations
+      user.save()      
+
+      i++;
+    }
+}
+
 
 
 

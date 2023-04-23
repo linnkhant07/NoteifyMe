@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 
 //for discord
-const {printHiEvery5Seconds} = require("./discord/discord")
+const {printHiEvery5Seconds, print} = require("./discord/discord")
 
 
 //models
@@ -161,7 +161,7 @@ app.use((err, req, res, next)=>{
 
 
 //printHiEvery5Seconds()
-
+//print()
 //listen on port 3000
 app.listen(3000, ()=>{
     console.log("Project listening on Port 3000!");

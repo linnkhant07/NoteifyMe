@@ -12,6 +12,9 @@ module.exports.createNote = async (req,res) => {
 
         course.notes.push(note)
         await course.save()
+
+        //to delete later
+        note.isRemind = true;
         await note.save()
 
         //flash

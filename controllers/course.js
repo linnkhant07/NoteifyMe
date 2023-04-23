@@ -19,6 +19,8 @@ module.exports.createCourse = async (req,res) => {
     //add new course to the database
     try {
         const course = new Course(req.body.course)
+        //to delete later
+        course.isRemind = true;
         await course.save()
 
         const user = await User.findById(req.user._id)

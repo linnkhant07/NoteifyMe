@@ -49,7 +49,28 @@ module.exports.renderDiscordForm = (req,res,next) =>{
     const {id} = req.params
     res.render(`user/discord`, {id})
 }
-module.exports.registerDiscord = (req,res,next) =>{
-    res.send("Sent to discordSetup")
+module.exports.registerDiscord = async (req,res,next) =>{
+
+    try{
+        const {id} = req.params
+        const user = await User.findByIdAndUpdate(id, {...req.body.user}, {new: true})
+
+        if(!user){
+            res.flash('failure', "User Not Found!")
+            return res.redirect("/user/register")
+        }
+
+        //redirect
+        console.log(req.body.user)
+        console.log(user)
+        req.flash("success", "DiscordID successfully updated")
+        res.redirect(`/courses`)
+    }
+
+    catch(e){
+        res.send(e)
+    }
+    
+
 }
 

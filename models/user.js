@@ -24,9 +24,18 @@ const userSchema = new Schema({
         required: true
     },
 
+    random: {
+        notes: [String],
+        questions: [String],
+    },
+
     courses: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Course'
+    }],
+
+    explanations: [{
+        type: String
     }]
 });
 

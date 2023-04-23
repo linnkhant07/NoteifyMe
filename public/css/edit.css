@@ -1,14 +1,6 @@
 body{
-    background-color: aliceblue;
-}
-
-h1{
     font-family: 'Courier New', Courier, monospace;
-    font-weight: bold;
-}
-
-h2{
-    font-family: 'Courier New', Courier, monospace;
+    background-color: antiquewhite;
 }
 
 button {
@@ -21,3 +13,4 @@ button {
     width: 100%;
     width:auto;
 }
+    

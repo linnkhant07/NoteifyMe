@@ -1,0 +1,33 @@
+body{
+    background-color: blanchedalmond;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+h1{
+    margin-right: 30px;
+    font-size: 40px;
+}
+
+div{
+    background-color:whitesmoke;
+    width: 1000px;
+    border: 1px solid black;
+    padding: 50px;
+    text-align: left;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin: auto;
+}
+
+.flex-parent {
+    display: flex;
+}
+  
+button.margin-right {
+    margin-left: auto;
+}
+
+button{
+    cursor: pointer;
+    padding: 5px 10px;
+}

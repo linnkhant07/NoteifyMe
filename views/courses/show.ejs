@@ -12,7 +12,9 @@
     <h1><%= course.title%></h1>
     <h2><%= course.instructor %></h2>
 
-    <p>Description: <%= course.description  %></p>
+    <p> 
+        <em> Description: <%= course.description  %> </em> 
+    </p>
     <div>
         <a href="/courses/<%= course._id  %>/edit">Edit Details</a>
         <form action="/courses/<%= course._id %>?_method=DELETE" method="POST">

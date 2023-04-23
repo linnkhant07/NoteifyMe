@@ -6,18 +6,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Course</title>
+    <link rel="stylesheet" href="/css/edit.css">
+    
 </head>
 <body>
-    <h1>Edit your course</h1>
-    <h2>because first drafts are always shitty right</h2>
+    
+        <h1 style="font-weight: bold;">Edit your course</h1>
 
+    <br>
     <form action="/courses/<%= course._id  %>?_method=PUT" method="POST" >
-        <label for="title">course Title: </label>
-        <input type="text" name="course[title]" id="title" value="<%= course.title %>">
-        <label for="instructor">Instructor: </label>
-        <input type="text" name="course[instructor]" id="instructor" value="<%= course.instructor %>">
-        <label for="description">Description: </label>
-        <input type="text" name="course[description]" id="description" value="<%= course.description %>">
+        <p>
+            <label for="title">Course Title: </label>
+            <input type="text" name="course[title]" id="title" value="<%= course.title %>">
+            <br>
+        </p>
+        
+        <p>
+            <label for="instructor">Instructor: </label>
+            <input type="text" name="course[instructor]" id="instructor" value="<%= course.instructor %>">
+            <br>
+
+        </p>
+        
+        <p>
+            <label for="description">Description: </label>
+            <input type="text" name="course[description]" id="description" value="<%= course.description %>">
+            <br>
+        </p>
+        
         <!-- <label for="isRemind">To Be Reminded (stubs for now): </label>
         <input type="isRemind" name="course[isRemind]" id="isRemind" value="<%= course.isRemind %>"> -->
 
@@ -25,7 +41,7 @@
         <input type="text" name="course[summary]" id="summary" value="<%= course.summary %>">
         <label for="image">Upload Image: </label>
         <input type="file" name="course[image]" id="image" value="<%= course.image %>"accept="image/*"> -->
-
+        
         <div>
             <button>Update course</button>
         </div>

@@ -1,0 +1,47 @@
+body{
+    background-color:blanchedalmond;
+}
+
+h1{
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+h2{
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+button {
+    background-color: black;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    width:auto;
+}
+
+p{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+div{
+    background-color:azure;
+    width: 200px;
+    border: 1px solid black;
+    padding: 15px;
+    text-align: left;
+    margin: left;
+    cursor: pointer;
+}
+
+#discord{
+    width: 500px;
+    border: 1px solid black;
+    padding: 15px;
+    text-align: left;
+    margin: left;
+    cursor: pointer;
+}

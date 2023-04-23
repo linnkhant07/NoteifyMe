@@ -158,10 +158,10 @@ app.use((err, req, res, next)=>{
 
     res.status(err.statusCode).render("error", {err});
 })
-/*
+
 
 //printHiEvery5Seconds()
-*/
+
 //listen on port 3000
 app.listen(3000, ()=>{
     console.log("Project listening on Port 3000!");

@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "nodemon app.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "connect-flash": "^0.1.1",
@@ -27,5 +27,20 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.22"
-  }
+  },
+  "name": "remindme",
+  "description": "Our full stack app called Noteify Me powered by openAPI helps students remember their important class notes by sending notes and practice questions to their [Discord](https://discord.com) everyday. By using this app, students are able to not only connect with other students from the same class but also stay active with their class notes.",
+  "version": "1.0.0",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linnkhant07/RemindMe.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/linnkhant07/RemindMe/issues"
+  },
+  "homepage": "https://github.com/linnkhant07/RemindMe#readme"
 }

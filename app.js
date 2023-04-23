@@ -32,7 +32,7 @@ const courseRoutes = require("./routes/course")
 const noteRoutes = require("./routes/note")
 
 //dbUrl for mongoAtlas
-const dbUrl = 'mongodb://127.0.0.1:27017/remindMe'
+const dbUrl = process.env.DB_URL 
 //'mongodb://127.0.0.1:27017/smth
 
 //connect-mongo for session store

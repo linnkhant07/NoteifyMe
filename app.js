@@ -17,7 +17,7 @@ if(process.env.NODE_ENV != "production"){
 //path join
 const path = require('path')
 const ejsMate = require('ejs-mate')
-//const ExpressError = require('./utils/ExpressError')
+const ExpressError = require('./utils/ExpressError')
 const Course = require('./models/course')
 
 //passport

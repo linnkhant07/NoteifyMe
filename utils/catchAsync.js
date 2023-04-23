@@ -1,4 +1,4 @@
-const ExpressError = require('./ExpressError')
+const ExpressError = require('./ExpressError.js')
 
 //wraps async functions with try catch
 const catchAsync = (fn) => {

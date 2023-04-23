@@ -1,4 +1,4 @@
-const ExpressError = require('./expressError')
+const ExpressError = require('./ExpressError')
 
 //wraps async functions with try catch
 const catchAsync = (fn) => {
@@ -7,4 +7,4 @@ const catchAsync = (fn) => {
     }
 }
 
-module.exports = catchAsync;
+module.exports = catchAsync

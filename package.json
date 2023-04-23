@@ -4,7 +4,8 @@
   "description": "Our full stack app called Noteify Me powered by openAPI helps students remember their important class notes by sending notes and practice questions to their [Discord](https://discord.com) everyday. By using this app, students are able to not only connect with other students from the same class but also stay active with their class notes.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",

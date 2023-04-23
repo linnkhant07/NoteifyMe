@@ -1,3 +1,4 @@
+const cool = require('cool-ascii-faces')
 //for express
 const express = require('express');
 const app = express();

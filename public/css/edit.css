@@ -1,0 +1,16 @@
+body{
+    font-family: 'Courier New', Courier, monospace;
+    background-color: antiquewhite;
+}
+
+button {
+    background-color: black;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    width:auto;
+}
+    

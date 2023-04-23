@@ -1,0 +1,54 @@
+<% layout('layouts/boilerplate')%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses</title>
+    <link rel="stylesheet" href="/css/index.css">
+
+</head>
+<body>
+    <p class="row mb-5">
+        <p class="col-6">
+            <h1>Courseshelf for </h1>
+            <h2> <%= username %> </h2>
+        </p>
+        <!--Need to fix this part-->
+        <div class="discord">
+        <% if(!discordID) {%>
+        <p class="col-6 text-end">
+            <p>
+                <h2> Register For Discord</h2>
+                <p> We need your discord to send summaries!</p>
+                <a href="<%= id %>/discordSetup">Set Up discord</a>
+            </p>
+        </p>
+        <% } %>
+    </div>
+    </p>
+    
+    
+
+    <p>
+        <% for(let course of courses) {%>
+            <ul>
+                <div>
+                    <h3><%= course.title %></h3>
+                    <p> Instructor: <%= course.instructor %> <br>
+                        Description: <%= course.description  %> <br>
+                        Note count: <%= course.notes.length  %>
+                    </p>
+                    <button><a style="color: white" href= "/courses/<%= course._id  %>" >View course</a></button>
+                </div>
+            </ul>
+        <%} %>
+        </p>
+
+    <p>
+        <a href="/courses/new">Add a new course</a>
+    </p>
+       
+</body>
+</html>

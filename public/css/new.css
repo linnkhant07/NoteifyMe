@@ -2,7 +2,7 @@ body{
     background-color: antiquewhite;
 }
 
-div{
+h1{
     font-family: 'Courier New', Courier, monospace;
     font-size: 35px;
     text-align: center;
@@ -10,10 +10,12 @@ div{
 
 p{
     background-color:azure;
-    width: 15px;
+    width: 150px;
     border: 1px solid black;
     padding: 50px;
     text-align: center;
+    margin-right: auto;
+    margin-bottom: auto;
     margin: auto;
     cursor: pointer;
     
@@ -23,7 +25,6 @@ button {
     background-color: gray;
     color: white;
     padding: 20px 40px;
-    margin-left: auto;
     border: none;
     cursor: pointer;
     width: 100%;

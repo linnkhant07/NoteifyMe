@@ -1,0 +1,48 @@
+body{
+    
+    background-image: url(https://assets-production.mochi.media/products/127387/photos/square_thumbnail_247006-grid-pattern-sticky-note-set-45d7cd.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family:'Courier New', Courier, monospace;
+
+}
+
+.flex-container{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+h1{
+    text-align: center;
+    font-size: 70px;
+    color: black;
+}
+
+h2{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 50px;
+    color: black;
+}
+button {
+    background-color: gray;
+    color: white;
+    padding: 15px 40px;
+    margin:auto;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    width:auto;
+    display: block;
+}
+  
+a{
+    color:black;
+    font-weight: bold;
+}
+
+a.hover{
+    color:red;
+}

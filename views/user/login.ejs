@@ -1,0 +1,22 @@
+<% layout('layouts/boilerplate')%>
+
+<head>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<h1>Login</h1>
+
+    <form action="/login" method="POST">
+    <p>
+        <label for="username">Username: </label>
+        <input type="text" id="username" name="username">
+    
+        <label for="password" id="password">Password: </label>
+        <input type="password" id="password" name="password">
+    
+        <button>Login</button>
+    </p>
+    
+    <div>
+        <a style="text-align:center" href="/register">Register instead</a>
+    </div>
+</form>

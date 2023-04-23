@@ -16,15 +16,17 @@
             <h2> <%= username %> </h2>
         </p>
         <!--Need to fix this part-->
-        <div class="discord">
+        <div>
         <% if(!discordID) {%>
-        <p class="col-6 text-end">
-            <p>
-                <h2> Register For Discord</h2>
-                <p> We need your discord to send summaries!</p>
-                <a href="<%= id %>/discordSetup">Set Up discord</a>
+            <div class="discord">
+            <p class="col-6 text-end">
+                <p>
+                    <h2> Register For Discord</h2>
+                    <p> We need your discord to send summaries!</p>
+                    <a href="<%= id %>/discordSetup">Set Up discord</a>
+                </p>
             </p>
-        </p>
+        </div>
         <% } %>
     </div>
     </p>
@@ -34,7 +36,7 @@
     <p>
         <% for(let course of courses) {%>
             <ul>
-                <div>
+                <div class="course">
                     <h3><%= course.title %></h3>
                     <p> Instructor: <%= course.instructor %> <br>
                         Description: <%= course.description  %> <br>
@@ -44,7 +46,7 @@
                 </div>
             </ul>
         <%} %>
-        </p>
+    </p>
 
     <p>
         <a href="/courses/new">Add a new course</a>

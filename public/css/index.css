@@ -27,7 +27,7 @@ p{
     font-family: 'Times New Roman', Times, serif;
 }
 
-div{
+.course, .discord{
     background-color:azure;
     width: 200px;
     border: 1px solid black;

@@ -20,7 +20,6 @@ const userSchema = new Schema({
 
     school: {
         type: String,
-        unique: true,
         required: true
     },
 

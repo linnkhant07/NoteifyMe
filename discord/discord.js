@@ -101,60 +101,109 @@ async function get_three_rand_notes(courses) {
 
 cron.schedule('00 8 * * *', async () => {
   const users = await User.find({ discordID: { $ne: '' } }).populate('courses');
-    for(let user of users){
-      //delete everything from yesterday
-      user.random.courses = []
-      user.random.questions = []
-      user.random.explanations = []
+  users.forEach(async (user) => {
+    // client.users.send(`${user.discordID}`, `Hey, how's it going? Yes, it's that time of the day again! Here are the three blocks of notes we have collected for today. Good luck answering the questions!\n`);
+    //delete everything from yesterday
+    user.random.notes = []
+    user.random.questions = []
+    user.random.explanations = []
 
-      //find for the courses with isRemind: true
-      const filtered_courses = user.courses.filter(course => course.isRemind)
-      const courses = get_three_rand_courses(filtered_courses);
+    //find for the courses with isRemind: true
+    const filtered_courses = user.courses.filter(course => course.isRemind)
+    const courses = get_three_rand_courses(filtered_courses);
 
-      //get 3 random note blocks
-      const notes = get_three_rand_notes(courses)
-      const questions = []
-      const explanations = []
-      console.log(courses)
+    //get 3 random note blocks
+    const notes = await get_three_rand_notes(courses)
+    const questions = await get_ai_questions(notes)
+    const explanations = await get_ai_explanations(notes, questions)
 
-    }
+    //for the choices
+    const menus = getMenus();
+    
+    for(let i = 0; i < notes.length; i++){
+        client.users.send(`${user.discordID}`, `Notes ${i+1}: ${notes[i]}`);
+        client.users.send(`${user.discordID}`,{ content: `Question ${i+1}: ${questions[i]}`, components: [menus[i]] });
+      }    
+
+    //save to user for the day
+    user.random.notes = notes 
+    user.random.questions = questions
+    user.explanations = explanations
+    await user.save()
+  
+
+  });
+
 });
 
-module.exports.print = async () =>{
-  const users = await User.find({ discordID: { $ne: '' } }).populate('courses');
-    for(let user of users){
-      let i = 0;
-      //delete everything from yesterday
-      user.random.notes = []
-      user.random.questions = []
-      user.random.explanations = []
-
-      //find for the courses with isRemind: true
-      const filtered_courses = user.courses.filter(course => course.isRemind)
-      const courses = get_three_rand_courses(filtered_courses);
-      
-      //get 3 random note blocks
-      const notes = await get_three_rand_notes(courses)
-      const questions = await get_ai_questions(notes)
-      const explanations = await get_ai_explanations(notes, questions)
-
+const getMenus = () =>{
     
-      client.users.send(`${user.discordID}`, `Notes: ${notes[0]}`);
-      client.users.send(`${user.discordID}`, `Question: ${questions[0]}`);
-      client.users.send(`${user.discordID}`, `Explanation: ${explanations[0]}`);
-
-      //delete everything from yesterday
-      user.random.notes = notes 
-      user.random.questions = questions
-      user.random.explanations = explanations
-      user.save()      
-
-      i++;
-    }
+    const menus = [];
+    for(let i = 0; i < 3; i++){
+      const menu = new ActionRowBuilder()
+          .addComponents(
+            new StringSelectMenuBuilder()
+              .setCustomId(`${i}`)
+              .setPlaceholder("True or False?")
+              .addOptions(
+                {
+                  label: 'True',
+                  description: '...or is it?',
+                  value: 'true',
+                },
+                {
+                  label: 'False',
+                  description: 'be careful what you choose for...',
+                  value: 'false',
+                },
+              ),
+          );
+  
+      menus.push(menu)
+  }
+  return menus
 }
 
+module.exports.print = async () => {
+  
+};
+//future plan: check if it's today's
+
+//could change - get prompt and question from here and use ai here
+//if the answer is chosen
+client.on(Events.InteractionCreate, async interaction => {
+	if (!interaction.isStringSelectMenu()) return;
+
+  const userId = interaction.user.id
+  const index = Number(interaction.customId)
+  const users = await User.find({discordID: userId})
+  const user = users[0]
+  console.log(user)
+  const message = user.explanations[index]
+
+  await interaction.update({ content: `${message}`, components: []});
+
+  /*
+
+
+
+  c
+
+
+  //.populate({path: ‘reviews’, populate: { path: ‘author’}}).populate(‘author’)
+
+  console.log("user: ", user)
+  
+    
+  client.users.send( `${userId}`, message);
+  //await interaction.update({ content: `${message}`, components: [] });*/
+  
+});
 
 
 
 // Log in to Discord with your client's token
 client.login(process.env.DISCORD_TOKEN);
+
+
+

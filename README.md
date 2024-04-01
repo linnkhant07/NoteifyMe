@@ -6,10 +6,6 @@ Welcome to Noteify Me! Our platform revolutionizes studying by turning your scho
 
 This is a project that my team built for the <b>UCLA Hacks 2023</b> which lasted 36 hours, and I took charge of the whole backend process from the website to database and the Discord bot.
 
-## Demo
-
-soon!
-
 ## Features
 
 - **Interactive Quizzes:** Your school notes transformed into interactive quizzes.
@@ -43,10 +39,19 @@ To install and run Noteify Me locally, follow these steps:
 To use Noteify Me, follow these steps:
 
 1. Create an account on the Noteify Me website.
+![image](https://github.com/linnkhant07/NoteifyMe-UCLA-HACKS23/assets/68958137/6bccf628-43a1-4eb3-a8ed-e2960c359831)
+
 2. Upload and store notes from different subjects.
-3. Connect your Discord account to receive daily quiz questions.
+![storeNotes](https://github.com/linnkhant07/NoteifyMe-UCLA-HACKS23/assets/68958137/854c3756-6578-4363-805f-7ff93e2e3626)
+![storeNotes2](https://github.com/linnkhant07/NoteifyMe-UCLA-HACKS23/assets/68958137/44c14455-8b49-441f-bfb9-0e94f0777229)
+
+3. Connect your Discord account to receive daily quiz questions. (CRON is set to send quizzes at 8 am every morning)
+![cron](https://github.com/linnkhant07/NoteifyMe-UCLA-HACKS23/assets/68958137/2ea9b215-7ed5-4435-95e8-7b195dca9aa5)
+![Image 3-31-24 at 11 01 PM](https://github.com/linnkhant07/NoteifyMe-UCLA-HACKS23/assets/68958137/c8e9d96c-2e8a-4211-aeef-637d94a741e0)
+
 4. Answer quiz questions and receive instant feedback.
-5. Customize settings or preferences, if applicable.
+![Image 3-31-24 at 11 02 PM](https://github.com/linnkhant07/NoteifyMe-UCLA-HACKS23/assets/68958137/393e2daf-b1e8-47ea-ae9b-f9d75ceddb50)
+
 
 ## Contributing
 
